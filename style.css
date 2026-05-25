@@ -6,56 +6,69 @@
     --text-color: #2f3640;
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-color);
+body, html {
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--bg-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
 }
+
+/* Ventana elástica del libro: Se adapta de celulares a monitores grandes */
 .book-viewport {
-    width: 90vw;
+    width: 95vw;
     max-width: 750px;
-    height: 80vh;
-    max-height: 680px;
+    height: 82vh; /* Deja espacio exacto para los botones inferiores */
     background: var(--page-bg);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
     border-radius: 12px;
-    overflow: hidden; 
+    overflow: hidden;
     position: relative;
 }
+
+/* Riel infinito */
 .pages-container {
     display: flex;
-    width: 1300%; 
-    height: 120%;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    width: max-content;
+    height: 100%;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
+
+/* Cada hoja individual ocupa exactamente el ancho disponible */
 .page {
-    width: 90vw;
+    flex: 0 0 95vw; /* Sincronizado con el book-viewport */
+    width: 95vw;
     max-width: 750px;
     height: 100%;
-    padding: 40px;
+    padding: 25px; /* Menos padding interno para pantallas pequeñas */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: var(--page-bg);
+    overflow: hidden;
 }
+
+/* Forzar reset para las cubiertas */
 .cover-page {
-    background: linear-gradient(135deg, #1e272e 0%, #2c3e50 100%);
+    background: linear-gradient(135deg, #1e272e 0%, #2c3e50 100%) !important;
     color: white;
-    position: relative;
 }
 
 .cover-accent {
     position: absolute;
     top: 0;
     left: 0;
-    width: 15px;
+    width: 12px;
     height: 100%;
     background: var(--accent-color);
 }
@@ -69,211 +82,147 @@ body {
     text-align: center;
 }
 
-.main-title {
-    color: white;
-    font-size: 2.5rem;
-    margin: 0px 0;
-}
-
-.subtitle {
-    color: #bdc3c7;
-    font-weight: 300;
-}
-
-.title-divider {
-    width: 40%;
-    border: 1px solid var(--accent-color);
-    margin: 20px 0;
-}
+.main-title { font-size: 2.2rem; margin: 5px 0; color: white; }
+.subtitle { color: #bdc3c7; font-weight: 300; font-size: 1rem; }
+.title-divider { width: 45%; border: 1px solid var(--accent-color); margin: 15px 0; }
+.institution-text { font-size: 0.85rem; line-height: 1.4; }
 
 .authors-box ul {
-    margin: 5px 0 0 0;
-    padding-left: 5px;
-    font-size: 1rem;
+    list-style: none;
+    margin: 10px 0 0 0;
+    padding: 0;
+    font-size: 0.9rem;
     color: #ecf0f1;
-}
-.page-header h2 {
-    margin: 0 0 5px 0;
-    color: var(--primary-color);
+    line-height: 1.5;
 }
 
-.header-line {
-    width: 60px;
-    height: 3px;
-    background-color: var(--accent-color);
-}
+/* Encabezados */
+.page-header h2 { margin: 0 0 5px 0; font-size: 1.4rem; color: var(--primary-color); }
+.header-line { width: 50px; height: 3px; background-color: var(--accent-color); }
 
+/* Cuerpo adaptativo */
 .page-body {
     flex: 1;
-    margin-top: 20px;
+    margin-top: 15px;
     overflow-y: auto;
+}
+
+/* El truco del flex-body: Distribuye proporcionalmente texto e imágenes/3D */
+.flex-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .page-body p {
     color: var(--text-color);
-    line-height: 1.6;
+    line-height: 1.5;
+    font-size: 0.92rem;
     text-align: justify;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .page-footer {
     text-align: right;
-    font-size: 13px;
+    font-size: 11px;
     color: #7f8c8d;
     border-top: 1px solid #f1f2f6;
-    padding-top: 10px;
+    padding-top: 8px;
 }
 
-.page-footer-text {
-    text-align: center;
-    font-size: 12px;
-    color: #7f8c8d;
-}
-.table-of-contents {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
+.page-footer-text { text-align: center; font-size: 11px; color: #7f8c8d; }
 
-.table-of-contents li {
-    display: flex;
-    justify-content: space-between;
-    align-items: bottom;
-    margin-bottom: 15px;
-    cursor: pointer;
-    transition: color 0.2s;
-}
+/* Tabla de contenido */
+.table-of-contents { list-style: none; padding: 0; margin: 10px 0; }
+.table-of-contents li { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 12px; font-size: 0.9rem; cursor: pointer; }
+.table-of-contents li:hover { color: var(--accent-color); }
 
-.table-of-contents li:hover {
-    color: var(--accent-color);
-}
-
-.dots {
-    flex: 1;
-    border-bottom: 2px dotted #ccc;
-    margin: 0 10px;
-    position: relative;
-    top: -4px;
-}
-.selector-container {
-    margin-bottom: 15px;
-}
-
-.styled-select {
+/* Contenedores de renderizado encogibles */
+.mini-viewer-container {
     width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-family: inherit;
-    color: var(--primary-color);
+    flex: 1; /* Crece u ocupa lo que quede libre de pantalla sin salirse */
+    min-height: 180px;
+    max-height: 250px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px dashed #ccc;
+    margin-top: 5px;
+    overflow: hidden;
 }
 
 .viewer-container {
     width: 100%;
-    height: 300px;
+    flex: 1;
+    min-height: 200px;
     background: #f1f2f6;
     border-radius: 8px;
     border: 1px solid #e4e7eb;
 }
-.mini-viewer-container {
-    width: 100%;
-    height: 250px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border: 1px dashed #ccc;
-    margin-top: 10px;
-}
+
+.selector-container { margin-bottom: 10px; }
+.styled-select { width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc; font-size: 0.9rem; }
 
 model-viewer {
     width: 100%;
     height: 100%;
-}
-.reference-item {
-    text-indent: -25px;
-    padding-left: 25px;
-    margin-bottom: 15px;
-    font-size: 0.95rem;
+    outline: none;
 }
 
-.back-cover-page {
-    background: #1e272e;
-    color: #ffffff;
+/* Imagen responsive de la Pág 1 */
+.img-container {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.book-img {
+    max-width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Contracubierta */
+.back-cover-page { background: #1e272e !important; color: #ffffff; }
 .back-title { color: white; }
-.back-quote { color: #dcdde1; font-style: italic; text-align: center; max-width: 80%; margin: 20px auto; }
-.back-footer { color: #7f8c8d; font-size: 0.85rem; text-align: center; }
+.back-quote { color: #dcdde1; font-style: italic; text-align: center; max-width: 85%; margin: 15px auto; font-size: 0.9rem; }
+.back-footer { color: #7f8c8d; font-size: 0.8rem; text-align: center; }
 
+/* Controles de navegación de abajo */
 .nav-controls {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 90vw;
+    width: 95vw;
     max-width: 750px;
-    margin-top: 20px;
+    margin-top: 12px;
 }
 
 .btn {
     background-color: var(--primary-color);
     color: white;
     border: none;
-    padding: 12px 24px;
-    font-size: 14px;
+    padding: 10px 20px;
+    font-size: 13px;
     border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
+.btn:disabled { background-color: #a5b1c2; }
 
-.btn:hover { background-color: var(--accent-color); }
-.btn:disabled { background-color: #a5b1c2; cursor: not-allowed; }
+.progress-bar-container { flex: 1; height: 6px; background-color: #dcdde1; margin: 0 15px; border-radius: 3px; overflow: hidden; }
+.progress-bar { height: 100%; background-color: var(--accent-color); }
 
-.progress-bar-container {
-    flex: 1;
-    height: 6px;
-    background-color: #dcdde1;
-    margin: 0 20px;
-    border-radius: 3px;
-    overflow: hidden;
-}
+/* Quiz */
+.quiz-container { background: #f1f2f6; padding: 15px; border-radius: 8px; }
+.quiz-option-btn { display: block; width: 100%; text-align: left; background: white; border: 1px solid #ced4da; padding: 10px; margin-bottom: 8px; border-radius: 6px; font-size: 0.88rem; cursor: pointer; }
 
-.progress-bar {
-    height: 100%;
-    background-color: var(--accent-color);
-    transition: width 0.3s ease;
-}
-.quiz-container {
-    background: #f1f2f6;
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 15px;
-}
-.quiz-option-btn {
-    display: block;
-    width: 100%;
-    text-align: left;
-    background: white;
-    border: 1px solid #ced4da;
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    transition: all 0.2s ease;
-}
-.quiz-option-btn:hover:not(:disabled) {
-    background: #e1e8ed;
-    border-color: var(--accent-color);
-}
-.quiz-result-message {
-    margin-top: 15px;
-    font-size: 0.95rem;
-}
-.book-img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    border-radius: 6px;
-    margin: 15px auto;
-    display: block;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+/* Media Query específico para reajustar en pantallas de escritorio */
+@media (min-width: 750px) {
+    .page {
+        flex: 0 0 750px;
+        width: 750px;
+    }
 }

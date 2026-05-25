@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Libro Interactivo: Inmersión 3D en la Educación</title>
     <link rel="stylesheet" href="style.css">
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
@@ -15,7 +15,7 @@
         <div class="page cover-page">
             <div class="cover-accent"></div>
             <div class="cover-content">
-                <h1 class="main-title">Inmersion 3D</h1>
+                <h1 class="main-title">Inmersión 3D</h1>
                 <h3 class="subtitle">Realidad Aumentada (RA) y Realidad Virtual (RV)</h3>
                 <div class="title-divider"></div>
                 <p class="institution-text">
@@ -27,9 +27,9 @@
                 <div class="authors-box">
                     <p><strong>Integrantes:</strong></p>
                     <ul>
-                        <br>Sebastian Alejandro Apraez Rojas</br>
-                        <br>Frank Jhojanes Polania Ortega</br>
-                        <br>Jhon Alexander Romero Rincon</br>
+                        <li>Sebastian Alejandro Apraez Rojas</li>
+                        <li>Frank Jhojanes Polania Ortega</li>
+                        <li>Jhon Alexander Romero Rincon</li>
                     </ul>
                 </div>
             </div>
@@ -75,24 +75,26 @@
                 <h2>Pág. 1: Fundamentos de la Inmersión 3D</h2>
                 <div class="header-line"></div>
             </div>
-            <div class="page-body">
+            <div class="page-body flex-body">
                 <p>La integración de gráficos tridimensionales en los entornos de aprendizaje permite romper las barreras físicas del aula tradicional. Al interactuar con un objeto en un espacio de tres dimensiones, el cerebro no procesa la información como un dato plano, sino como una experiencia vivida.</p>
                 <p>A través de la manipulación objeto-entorno, el usuario adquiere un rol activo. Las ventajas de este enfoque incluyen la asimilación inmediata de escalas, la experimentación sin riesgos materiales y la reducción drástica de costos de infraestructura en laboratorios educativos.</p>
-                <img src="inmersion3d.png" alt="Inmersion 3D" class="book-img">
+                <div class="img-container">
+                    <img src="inmersion3d.png" alt="Inmersion 3D" class="book-img">
+                </div>
             </div>
             <div class="page-footer">1</div>
         </div>
 
         <div class="page">
             <div class="page-header">
-                <h2>Pág. 2: Ecosistema Inmersivo y Entretenimiento</h2>
+                <h2>Pág. 2: Ecosistema Inmersivo</h2>
                 <div class="header-line"></div>
             </div>
-            <div class="page-body">
-                <p>La inmersión se divide en dos grandes vertientes: la <strong>Realidad Aumentada (RA)</strong>, que superpone elementos digitales al mundo real a través de pantallas, y la <strong>Realidad Virtual (RV)</strong>, que transporta al usuario a entornos completamente simulados y artificiales. Aunque la RV ideal requiere visores ópticos, las simulaciones en tiempo real permiten explorar mapas volumétricos complejos desde cualquier pantalla.</p>
-                <p>Este desarrollo no es ajeno a la industria del <strong>entretenimiento.</strong> El cine de animación contemporáneo y los videojuegos han perfeccionado técnicas de representación espacial dinámicas que hoy adoptamos en la educación para generar mayor enganche y recordación interactiva.</p>
+            <div class="page-body flex-body">
+                <p>La inmersión se divide en dos grandes vertientes: la <strong>Realidad Aumentada (RA)</strong>, que superpone elementos digitales al mundo real, y la <strong>Realidad Virtual (RV)</strong>, que transporta al usuario a entornos simulados.</p>
+                <p>Este desarrollo viene impulsado por la industria del <strong>entretenimiento</strong>. El cine de animación contemporáneo y los videojuegos han perfeccionado técnicas de representación espacial dinámicas que hoy adoptamos en la educación.</p>
                 <div class="mini-viewer-container">
-                    <model-viewer src="Spiderman.glb" alt="Modelo 3D de Entorno Virtual Animado" autoplay camera-controls ar shadow-intensity="1"></model-viewer>
+                    <model-viewer src="Spiderman.glb" alt="Spider-Man Animado" autoplay camera-controls ar ar-modes="webxr scene-viewer quick-look" bounds="tight" shadow-intensity="1"></model-viewer>
                 </div>
             </div>
             <div class="page-footer">2</div>
@@ -103,11 +105,10 @@
                 <h2>Pág. 3: Caso de Uso - El Cortafuegos</h2>
                 <div class="header-line"></div>
             </div>
-            <div class="page-body">
+            <div class="page-body flex-body">
                 <p>Como ejemplo práctico de implementación conceptual, un <strong>Firewall</strong> actúa como un sistema de seguridad que filtra el tráfico de red basado en reglas estrictas.</p>
-                <p>En el modelo inferior se observa la metáfora visual: los flujos legítimos logran cruzar la frontera de seguridad perimetral, mientras que los paquetes maliciosos son interceptados y mitigados por los escudos defensivos del sistema.</p>
                 <div class="mini-viewer-container">
-                    <model-viewer src="Firewall.glb" alt="Modelo 3D animado de un Firewall" autoplay camera-controls ar shadow-intensity="1"></model-viewer>
+                    <model-viewer src="Firewall.glb" alt="Modelo 3D animado de un Firewall" autoplay camera-controls ar ar-modes="webxr scene-viewer quick-look" bounds="tight" shadow-intensity="1"></model-viewer>
                 </div>
             </div>
             <div class="page-footer">3</div>
@@ -118,11 +119,10 @@
                 <h2>Pág. 4: Caso de Uso - Topología en Bus</h2>
                 <div class="header-line"></div>
             </div>
-            <div class="page-body">
+            <div class="page-body flex-body">
                 <p>Otro ejemplo fundamental es la <strong>Topología en Bus</strong>, donde todos los dispositivos comparten un único canal físico centralizado de transmisión de datos.</p>
-                <p>El renderizado tridimensional interactivo permite inspeccionar de cerca la geometría de los nodos y analizar fallas estructurales típicas de las arquitecturas de red, como la falta de terminadores en los extremos de la línea.</p>
                 <div class="mini-viewer-container">
-                    <model-viewer src="topologiaBus.glb" alt="Modelo 3D de Topología en Bus" autoplay camera-controls ar shadow-intensity="1"></model-viewer>
+                    <model-viewer src="topologiaBus.glb" alt="Modelo 3D de Topología en Bus" autoplay camera-controls ar ar-modes="webxr scene-viewer quick-look" bounds="tight" shadow-intensity="1"></model-viewer>
                 </div>
             </div>
             <div class="page-footer">4</div>
@@ -133,11 +133,10 @@
                 <h2>Pág. 5: Caso de Uso - Cliente-Servidor</h2>
                 <div class="header-line"></div>
             </div>
-            <div class="page-body">
+            <div class="page-body flex-body">
                 <p>La arquitectura <strong>Cliente-Servidor</strong> distribuye las tareas entre los proveedores de recursos (servidores) y los demandantes de información (clientes).</p>
-                <p>La simulación en tiempo real ilustra visualmente el ciclo continuo de peticiones (requests) y respuestas (responses) que dan soporte a los servicios modernos de Internet.</p>
                 <div class="mini-viewer-container">
-                    <model-viewer src="clienteservidor.glb" alt="Modelo 3D Cliente Servidor" autoplay camera-controls ar shadow-intensity="1"></model-viewer>
+                    <model-viewer src="clienteservidor.glb" alt="Modelo 3D Cliente Servidor" autoplay camera-controls ar ar-modes="webxr scene-viewer quick-look" bounds="tight" shadow-intensity="1"></model-viewer>
                 </div>
             </div>
             <div class="page-footer">5</div>
@@ -148,11 +147,10 @@
                 <h2>Pág. 6: Caso de Uso - Enrutamiento IP</h2>
                 <div class="header-line"></div>
             </div>
-            <div class="page-body">
-                <p>El <strong>Direccionamiento IP</strong> es el esquema lógico que identifica de forma única a cada dispositivo en una red.</p>
-                <p>A través del visor interactivo se puede monitorizar cómo viaja un paquete de información en un entorno volumétrico, orientándose de forma inteligente a través de routers hasta dar con su destino de destino.</p>
+            <div class="page-body flex-body">
+                <p>El <strong>Direccionamiento IP</strong> es el esquema lógico que identifica de forma única a cada dispositivo en una red física o virtual.</p>
                 <div class="mini-viewer-container">
-                    <model-viewer src="direccionip.glb" alt="Modelo 3D Dirección IP" autoplay camera-controls ar shadow-intensity="1"></model-viewer>
+                    <model-viewer src="direccionip.glb" alt="Modelo 3D Dirección IP" autoplay camera-controls ar ar-modes="webxr scene-viewer quick-look" bounds="tight" shadow-intensity="1"></model-viewer>
                 </div>
             </div>
             <div class="page-footer">6</div>
@@ -160,14 +158,11 @@
 
         <div class="page">
             <div class="page-header">
-                <h2>Pág. 7: Estación de Práctica y Laboratorio</h2>
+                <h2>Pág. 7: Estación de Práctica Global</h2>
                 <div class="header-line"></div>
             </div>
-            <div class="page-body">
-                <p>Utiliza esta biblioteca interactiva global para alternar dinámicamente entre todos los conceptos estudiados. Recuerda que si utilizas un dispositivo móvil, puedes pulsar el botón de Realidad Aumentada para desplegar la infraestructura en tu entorno físico real:</p>
-                
+            <div class="page-body flex-body">
                 <div class="selector-container">
-                    <label for="modelSelect"><strong>Seleccionar Componente Académico:</strong></label>
                     <select id="modelSelect" class="styled-select">
                         <option value="Firewall.glb">Firewall (Cortafuegos)</option>
                         <option value="topologiaBus.glb">Topología en Bus</option>
@@ -175,9 +170,8 @@
                         <option value="direccionip.glb">Dirección IP / Enrutamiento</option>
                     </select>
                 </div>
-
                 <div class="viewer-container">
-                    <model-viewer id="webViewer" src="Firewall.glb" alt="Laboratorio interactivo unificado" autoplay camera-controls ar shadow-intensity="1"></model-viewer>
+                    <model-viewer id="webViewer" src="Firewall.glb" alt="Laboratorio unificado" autoplay camera-controls ar ar-modes="webxr scene-viewer quick-look" bounds="tight" shadow-intensity="1"></model-viewer>
                 </div>
             </div>
             <div class="page-footer">7</div>
@@ -185,17 +179,16 @@
 
         <div class="page">
             <div class="page-header">
-                <h2>Evaluación Interactiva de Conceptos</h2>
+                <h2>Evaluación Interactiva</h2>
                 <div class="header-line"></div>
             </div>
             <div class="page-body">
-                <p>Responde a la siguiente pregunta de control para validar los conocimientos de la unidad didáctica:</p>
                 <div class="quiz-container">
-                    <p class="quiz-question"><strong>¿Qué ventaja pedagógica principal ofrece la manipulación de modelos 3D y RA frente a los textos planos tradicionales en la enseñanza técnica?</strong></p>
+                    <p class="quiz-question"><strong>¿Qué ventaja pedagógica principal ofrece la manipulación de modelos 3D y RA frente a los textos planos?</strong></p>
                     <div class="quiz-options">
-                        <button class="quiz-option-btn" onclick="checkAnswer(false, this)">A) Reduce la velocidad de navegación en plataformas web.</button>
-                        <button class="quiz-option-btn" onclick="checkAnswer(true, this)">B) Activa procesos cognitivos espaciales que mejoran la retención y comprensión de conceptos abstractos.</button>
-                        <button class="quiz-option-btn" onclick="checkAnswer(false, this)">C) Reemplaza por completo la labor teórica y explicativa del docente dentro del aula.</button>
+                        <button class="quiz-option-btn" onclick="checkAnswer(false, this)">A) Reduce la velocidad de navegación web.</button>
+                        <button class="quiz-option-btn" onclick="checkAnswer(true, this)">B) Activa procesos cognitivos espaciales que mejoran la retención de conceptos abstractos.</button>
+                        <button class="quiz-option-btn" onclick="checkAnswer(false, this)">C) Reemplaza por completo la labor teórica del docente.</button>
                     </div>
                     <div id="quizResult" class="quiz-result-message"></div>
                 </div>
@@ -209,9 +202,9 @@
                 <div class="header-line"></div>
             </div>
             <div class="page-body">
-                <p class="reference-item">Azuma, R. T. (1997). A survey of augmented reality. <em>Presence: Teleoperators & Virtual Environments</em>, 6(4), 355-385.</p>
-                <p class="reference-item">Dale, E. (1969). <em>Audiovisual methods in teaching</em> (3rd ed.). Dryden Press.</p>
-                <p class="reference-item">Mishra, P., & Koehler, M. J. (2006). Technological pedagogical content knowledge: A framework for teacher knowledge. <em>Teachers College Record</em>, 108(6), 1017-1054.</p>
+                <p class="reference-item">Azuma, R. T. (1997). A survey of augmented reality. <em>Presence</em>, 6(4), 355-385.</p>
+                <p class="reference-item">Dale, E. (1969). <em>Audiovisual methods in teaching</em>. Dryden Press.</p>
+                <p class="reference-item">Mishra, P., & Koehler, M. J. (2006). Technological pedagogical content knowledge. <em>Teachers College Record</em>, 108(6), 1017-1054.</p>
             </div>
             <div class="page-footer">9</div>
         </div>
