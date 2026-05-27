@@ -178,8 +178,8 @@ model-viewer {
 }
 
 .book-img {
-    max-width: 100%;
-    max-height: 180px;
+    max-width: 110%;
+    max-height: 270px;
     object-fit: contain;
     border-radius: 6px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.08);

@@ -1,5 +1,5 @@
 let currentPage = 0; 
-const totalPages = 13; // 12 posiciones de slider (0 a 11) para las 12 páginas reales mapeadas
+const totalPages = 15;
 
 const pagesContainer = document.getElementById('pagesContainer');
 const prevBtn = document.getElementById('prevBtn');
